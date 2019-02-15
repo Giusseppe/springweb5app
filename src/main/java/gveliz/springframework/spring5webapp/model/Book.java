@@ -25,6 +25,9 @@ public class Book {
     @OneToOne
     private Publisher publisher;
 
+    public Book(){
+
+    }
 
     public Book(String title, String isbn,Publisher publisher) {
         this.title = title;
@@ -32,12 +35,6 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public Book(String title, String isbn, Set<Author> authors,Publisher publisher) {
-        this.title = title;
-        this.isbn = isbn;
-        this.authors = authors;
-        this.publisher = publisher;
-    }
 
     public Long getId() {
         return id;
