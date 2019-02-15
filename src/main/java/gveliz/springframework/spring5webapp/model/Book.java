@@ -23,20 +23,20 @@ public class Book {
     private Set<Author> authors = new HashSet<>();
 
     @OneToOne
-    private Set<Publisher> publishers = new HashSet<>();
+    private Publisher publisher;
 
 
-    public Book(String title, String isbn) {
+    public Book(String title, String isbn,Publisher publisher) {
         this.title = title;
         this.isbn = isbn;
-
+        this.publisher = publisher;
     }
 
-    public Book(String title, String isbn, Set<Author> authors,Set<Publisher> publishers) {
+    public Book(String title, String isbn, Set<Author> authors,Publisher publisher) {
         this.title = title;
         this.isbn = isbn;
         this.authors = authors;
-        this.publishers = publishers;
+        this.publisher = publisher;
     }
 
     public Long getId() {
@@ -71,12 +71,12 @@ public class Book {
         this.authors = authors;
     }
 
-    public Set<Publisher> getPublishers() {
-        return publishers;
+    public Publisher getPublisher() {
+        return publisher;
     }
 
-    public void setPublishers(Set<Publisher> publishers) {
-        this.publishers = publishers;
+    public void setPublishers(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     @Override
@@ -99,7 +99,7 @@ public class Book {
                 ", title='" + title + '\'' +
                 ", isbn='" + isbn + '\'' +
                 ", authors=" + authors +
-                ", publishers=" + publishers +
+                ", publisher=" + publisher +
                 '}';
     }
 }

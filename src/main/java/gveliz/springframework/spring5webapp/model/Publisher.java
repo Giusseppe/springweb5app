@@ -1,9 +1,7 @@
 package gveliz.springframework.spring5webapp.model;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 public class Publisher {
@@ -14,8 +12,6 @@ public class Publisher {
     public String name;
     public String address;
 
-    @OneToOne(mappedBy = "publicher")
-    private Set<Book> books= new HashSet<>();
 
     public Publisher(String name, String address) {
         this.name = name;
@@ -46,13 +42,6 @@ public class Publisher {
         this.address = address;
     }
 
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -73,7 +62,6 @@ public class Publisher {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", books=" + books +
                 '}';
     }
 }
